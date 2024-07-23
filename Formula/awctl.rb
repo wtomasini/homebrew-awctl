@@ -2,7 +2,7 @@ class Awctl < Formula
   desc "Authwise cli utility to manage objects in your tenant"
   homepage "https://authwise.com"
   url "https://github.com/wtomasini/homebrew-awctl/archive/refs/tags/v0.0.1.tar.gz"
-  sha256 "34e137fedcbb005dd386e8a84e7fd17befcb464e6582731a7424fdb06a753a93"
+  sha256 "8da2d1cfe1d300721d25c8121e91cebd04e94b5b2da8a4501bfc991c5677176e"
   license "MIT"
 
   def install
