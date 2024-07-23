@@ -6,7 +6,6 @@ class Awctl < Formula
   license "MIT"
 
   def install
-    echo "maybe this is what breaks?"
     bin.install "awctl"
   end
 
