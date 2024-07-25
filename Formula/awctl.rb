@@ -6,19 +6,18 @@ class Awctl < Formula
   license "MIT"
 
   def install
-    case RUBY_PLATFORM
-    when "universal.arm64e-darwin23"
-      puts "awctl: detected MacOS (arm64)"
-      bin.install "awctl-darwin-amd64/awctl"
-    when "universal.amd64-darwin23"
-      puts "awctl: detected MacOS (amd64)"
-      bin.install "awctl-darwin-arm64/awctl"
-    when "x86_64-linux"
-      puts "awctl: detected Linux (amd64)"
-      bin.install "awctl-linux-amd64/awctl"
-    else
-      puts "awctl: your operating system is not supported or was not detected"
-    end
+  pl = RUBY_PLATFORM
+  if pl.include?("arm64")
+    puts "awctl: detected MacOS (arm64)"
+    bin.install "awctl-darwin-amd64/awctl"
+  elsif pl.include?("darwin")
+    puts "awctl: detected MacOS (amd64)"
+    bin.install "awctl-darwin-arm64/awctl"
+  elsif pl.include?("x86_64-linux")
+    puts "awctl: detected Linux (amd64)"
+    bin.install "awctl-linux-amd64/awctl"
+  else
+    puts "awctl: your operating system is not supported or was not detected"
   end
 
   test do
