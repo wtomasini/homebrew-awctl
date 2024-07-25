@@ -5,8 +5,6 @@ class Awctl < Formula
   sha256 "ad0f08080314c13e13aa2afb9b27330c86b33701b435f35d19089fbcbba6fea2"
   license "MIT"
 
-  depends_on "ruby"
-
   def install
     case RUBY_PLATFORM
     when "universal.arm64e-darwin23"
