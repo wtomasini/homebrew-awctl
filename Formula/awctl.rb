@@ -5,8 +5,20 @@ class Awctl < Formula
   sha256 "c1e2bc9d8e7acfaf428a266ceb0a593903aad696d80eb62207f3cfc1fa80f9f7"
   license "MIT"
 
+  depends_on "ruby"
+
   def install
-    bin.install "awctl"
+    puts RUBY_PLATFORM
+    case RUBY_PLATFORM
+    when "universal.arm64e-darwin23"
+      bin.install "awctl-darwin-amd64"
+    when "universal.amd64-darwin23"
+      bin.install "awctl-darwin-arm64"
+    when "x86_64-linux"
+      bin.install "awctl-linux-amd64"
+    else
+      puts "awctl: your operating system is not supported or was not detected"
+    end
   end
 
   test do
