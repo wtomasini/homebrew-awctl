@@ -1,21 +1,23 @@
 class Awctl < Formula
   desc "Authwise cli utility to manage objects in your tenant"
   homepage "https://authwise.com"
-  url "https://github.com/wtomasini/homebrew-awctl/releases/download/v0.0.1-2/homebrew-awctl-0.0.1.tar.gz"
-  sha256 "c1e2bc9d8e7acfaf428a266ceb0a593903aad696d80eb62207f3cfc1fa80f9f7"
+  url "https://github.com/wtomasini/homebrew-awctl/archive/refs/tags/v0.0.3.tar.gz"
+  sha256 "ad0f08080314c13e13aa2afb9b27330c86b33701b435f35d19089fbcbba6fea2"
   license "MIT"
 
   depends_on "ruby"
 
   def install
-    puts RUBY_PLATFORM
     case RUBY_PLATFORM
     when "universal.arm64e-darwin23"
-      bin.install "awctl-darwin-amd64"
+      puts "awctl: detected MacOS (arm64)"
+      bin.install "awctl-darwin-amd64/awctl"
     when "universal.amd64-darwin23"
-      bin.install "awctl-darwin-arm64"
+      puts "awctl: detected MacOS (amd64)"
+      bin.install "awctl-darwin-arm64/awctl"
     when "x86_64-linux"
-      bin.install "awctl-linux-amd64"
+      puts "awctl: detected Linux (amd64)"
+      bin.install "awctl-linux-amd64/awctl"
     else
       puts "awctl: your operating system is not supported or was not detected"
     end
